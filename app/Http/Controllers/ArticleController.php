@@ -30,18 +30,16 @@ class ArticleController extends Controller
 
     public function store()
     {
-        // $attributes = request()->validate([
-        //     'title' => 'required|min:3|max:255|unique:articles',
-        //     'author' => 'required|min:2|max:255',
-        //     'content' => 'required|min:2|max:1000',
-        // ]);
+        $attributes = request()->validate([
+             'title' => 'required|min:3|max:255|unique:articles',
+             'author' => 'required|min:2|max:255',
+             'content' => 'required|min:2|max:1000',
+         ]);
 
-        // $attributes['publish_date'] = now();
-        // $attributes['picture'] = 'default.jpg';
+         $attributes['publish_date'] = now();
+         $attributes['picture'] = 'default.jpg';
 
-        // Article::create($attributes);
-
-        //TODO --------------------Fix validation issues----------------------------------
+        Article::create($attributes);
 
         $title = request('title');
         $author = request('author');
